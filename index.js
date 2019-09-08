@@ -29,7 +29,7 @@ let todoItems = [];
 let list = document.getElementById('variety-list')
 
 function addTodo() {
-  todoItems.push(document.getElementById("input-bar").value)
+  todoItems.push({name: document.getElementById("input-bar").value, phone : document.getElementById("input-number").value})
   mapList()
 }
 
@@ -37,9 +37,8 @@ function mapList () {
   for (i = 0; i < todoItems.length; i++) {
     if (i === todoItems.length - 1) {
       let itemList = document.createElement('li')
-      list.innerHTML = list.innerHTML + `<li id='list${i}' class=''> <input id='checkBox${i}' 
-      onclick='tooglecheck(${i})' type='checkbox' class='' value=${i}>` 
-      + todoItems[ i ] + `<button onclick="buttonDelete(${i})">delete</button>` + "</li>"
+      list.innerHTML = list.innerHTML + "<li class=''>" + "<label>Name :</label>"  
+      + todoItems[i].name + "<br/>" + "<label>Phone : </label>" + todoItems[i].phone + "</li>"
     }
   }
 }
